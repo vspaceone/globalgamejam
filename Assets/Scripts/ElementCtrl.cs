@@ -11,7 +11,8 @@ public class ElementCtrl : MonoBehaviour {
 		Grid,
 		Transform,
 	}
-	private Rigidbody2D rb; 
+	private Rigidbody2D rb;
+	private float relRot;
 
 	public ElementType type;
 	public Sprite glassSprite;
@@ -53,8 +54,6 @@ public class ElementCtrl : MonoBehaviour {
 	void Start () {
 		SpriteRenderer sr = GetComponentInChildren<SpriteRenderer> ();
 		sr.sprite = getSpriteByType (type);
-		//CircleCollider2D col = GetComponent<CircleCollider2D> ();
-		//col.isTrigger = true;
 	}
 	
 	// Update is called once per frame
@@ -67,13 +66,24 @@ public class ElementCtrl : MonoBehaviour {
 		AudioSource.PlayClipAtPoint (bounceSound, new Vector3 (0, 0, 0));
 	}
 
+	void OnMouseDown() {
+		Vector2 mouse = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+		Vector2 vec = new Vector2 (mouse.x - rb.transform.position.x, mouse.y - rb.transform.position.y);
+		float rot = Vector2.Angle (vec, new Vector2 (0, 1));
+		if (vec.x > 0)
+			rot *= -1;
+		relRot = (box.rotation.eulerAngles.z) - rot;
+	}
+
 	void OnMouseDrag() {
 		Vector2 mouse = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 		Vector2 vec = new Vector2 (mouse.x - rb.transform.position.x, mouse.y - rb.transform.position.y);
 		float rot = Vector2.Angle (vec, new Vector2 (0, 1));
 		if (vec.x > 0)
 			rot *= -1;
-		Debug.Log("Pos " + Input.mousePosition + " " + vec + " " + rot);
+		rot += relRot;
+		if (rot < -180)
+			rot = 360 - rot;
 		box.rotation = Quaternion.Euler(0, 0, rot);
 	}
 
