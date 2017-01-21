@@ -375,6 +375,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &1073179187 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1772621783772154, guid: 07f815bcfdb5249be8c72a2fc27201d1,
+    type: 2}
+  m_PrefabInternal: {fileID: 94634727}
+--- !u!114 &1073179188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1073179187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ec76a1ae935b4dd097b54224fbb86b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1269887171
 Prefab:
   m_ObjectHideFlags: 0
@@ -578,7 +594,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1683382035
 GameObject:
