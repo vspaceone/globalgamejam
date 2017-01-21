@@ -8,6 +8,7 @@ public class EmitterCtrl : MonoBehaviour {
 	public Transform spawnPoint;
 	public float reloadTime = 4;
 	public float shootpower = 500;
+	public AudioClip emitSound;
 
 	private Rigidbody2D rb;
 	private Animator animator;
@@ -30,7 +31,8 @@ public class EmitterCtrl : MonoBehaviour {
 			float radian = ((rb.transform.eulerAngles.z - 90) / 180) * Mathf.PI;
 			Vector2 direction = new Vector2 (Mathf.Cos(radian), Mathf.Sin(radian));
 			projektil.GetComponent<Rigidbody2D> ().AddForce (direction * shootpower);
-			audio.Play ();
+			//audio.Play ();
+			AudioSource.PlayClipAtPoint(emitSound, new Vector3(0, 0, 0));
 		}
 
 	}

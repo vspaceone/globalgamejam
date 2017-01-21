@@ -6,6 +6,7 @@ public class TargetCtrl : MonoBehaviour {
 
 	private Rigidbody2D rb;
 	private Animator animator;
+	public AudioClip targetSound;
 
 	// Use this for initialization
 	void Start () {
@@ -19,6 +20,7 @@ public class TargetCtrl : MonoBehaviour {
 		Debug.Log("collision name = " + col.gameObject.name);
 		if (col.gameObject.name.Equals("Projektil(Clone)")) {
 			Debug.Log ("Win!");
+			AudioSource.PlayClipAtPoint (targetSound, new Vector3 (0, 0, 0));
 			Destroy (col.gameObject);
 		}
 	}

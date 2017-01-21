@@ -52,14 +52,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1009129521514478}
-  m_LocalRotation: {x: 0, y: 0, z: 0.42507342, w: 0.9051589}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.8144903, w: 0.5801772}
+  m_LocalPosition: {x: 3.25, y: 1.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4535609213362132}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 109.074}
 --- !u!4 &4535609213362132
 Transform:
   m_ObjectHideFlags: 1
@@ -135,12 +135,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ec76a1ae935b4dd097b54224fbb86b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
   glassSprite: {fileID: 21300000, guid: f12cb82b0e5494e13bbe5f444a5bacba, type: 3}
   mirrorSprite: {fileID: 21300000, guid: 8dafe5d1b7255492ab0b59b142d5e971, type: 3}
   wallSprite: {fileID: 21300000, guid: 3b8157b992ef14e7189095d88fb05a0e, type: 3}
   gridSprite: {fileID: 21300000, guid: cd09488e175774ccca0d401e9b1e5e4b, type: 3}
   transformSprite: {fileID: 21300000, guid: 398ddc5a3f7c64906bbf990ca3f0d63c, type: 3}
+  bounceSound: {fileID: 8300000, guid: f0a63baa2170c4b2ab5d29d3e5ad8737, type: 3}
 --- !u!212 &212877418476025354
 SpriteRenderer:
   m_ObjectHideFlags: 1

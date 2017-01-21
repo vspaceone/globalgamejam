@@ -19,6 +19,7 @@ public class ElementCtrl : MonoBehaviour {
 	public Sprite wallSprite;
 	public Sprite gridSprite;
 	public Sprite transformSprite;
+	public AudioClip bounceSound;
 
 	//private BoxCollider2D box;
 	Transform box;
@@ -61,8 +62,7 @@ public class ElementCtrl : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D coll) {
-
-
+		AudioSource.PlayClipAtPoint (bounceSound, new Vector3 (0, 0, 0));
 	}
 
 	void OnMouseDrag() {
@@ -71,7 +71,7 @@ public class ElementCtrl : MonoBehaviour {
 		float rot = Vector2.Angle (vec, new Vector2 (0, 1));
 		if (vec.x > 0)
 			rot *= -1;
-		Debug.Log("Pos " + Input.mousePosition + " " + vec + " " + rot);
+		//Debug.Log("Pos " + Input.mousePosition + " " + vec + " " + rot);
 		box.rotation = Quaternion.Euler(0, 0, rot);
 	}
 
