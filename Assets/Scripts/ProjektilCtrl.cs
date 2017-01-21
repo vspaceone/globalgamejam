@@ -24,6 +24,8 @@ public class ProjektilCtrl : MonoBehaviour {
 		animator = GetComponent<Animator> ();
 		sr = GetComponentInChildren<SpriteRenderer> ();
 
+		annouceType ();
+
 	}
 	
 	// Update is called once per frame
@@ -52,6 +54,11 @@ public class ProjektilCtrl : MonoBehaviour {
 			Debug.LogError ("Unknown type of projektil!");
 		}
 
+		annouceType ();
+
+	}
+
+	void annouceType(){
 		GameObject[] gameObjs = GameObject.FindObjectsOfType<GameObject> ();
 		foreach(GameObject gameObj in gameObjs){
 			gameObj.SendMessage ("updateProjektilType", type, SendMessageOptions.DontRequireReceiver );

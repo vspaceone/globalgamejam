@@ -21,6 +21,7 @@ public class ElementCtrl : MonoBehaviour {
 	public Sprite gridSprite;
 	public Sprite transformSprite;
 	public AudioClip bounceSound;
+	public Collider2D collider;
 
 	private ProjektilCtrl.ProjektilType lastProjektilType;
 
@@ -56,6 +57,9 @@ public class ElementCtrl : MonoBehaviour {
 	void Start () {
 		rb = GetComponent<Rigidbody2D> ();
 		box = GetComponent<Transform> ();
+		collider = (Collider2D) GetComponent<BoxCollider2D> ();
+
+
 		SpriteRenderer sr = GetComponentInChildren<SpriteRenderer> ();
 
 		sr.sprite = getSpriteByType (type);
@@ -67,20 +71,19 @@ public class ElementCtrl : MonoBehaviour {
 	}
 
 	void updateProjektilType( ProjektilCtrl.ProjektilType t ){
-		
-		if (t != lastProjektilType) {
-			if (t == ProjektilCtrl.ProjektilType.Parti) {
-				updateForParticle ();
-			} else {
-				updateForWave ();
-			}
-			lastProjektilType = t;
+
+		if (t == ProjektilCtrl.ProjektilType.Parti) {
+			updateForParticle ();
+		} else {
+			updateForWave ();
 		}
+		lastProjektilType = t;
+
 	}
 
 
 	void updateForParticle(){
-
+		Debug.Log ("update for particle");
 		switch (type) {
 		case ElementType.Glass:
 
@@ -89,28 +92,28 @@ public class ElementCtrl : MonoBehaviour {
 
 			break;
 		case ElementType.Mirror:
-
+			collider.isTrigger = true;
 			break;
 		case ElementType.Transform:
 
 			break;
 		case ElementType.Wall:
-
+			collider.isTrigger = false;
 			break;
 		}
 	}
 
 	void updateForWave(){
-		
+		Debug.Log ("update for wave");
 		switch (type) {
 		case ElementType.Glass:
-
+			collider.isTrigger = true;
 			break;
 		case ElementType.Grid:
 
 			break;
 		case ElementType.Mirror:
-
+			collider.isTrigger = false;
 			break;
 		case ElementType.Transform:
 
@@ -122,8 +125,48 @@ public class ElementCtrl : MonoBehaviour {
 	}
 
 
-	void OnCollisionEnter2D(Collision2D coll) {
-		AudioSource.PlayClipAtPoint (bounceSound, new Vector3 (0, 0, 0));
+	void OnCollisionEnter2D(Collision2D col) {
+		//AudioSource.PlayClipAtPoint (bounceSound, new Vector3 (0, 0, 0));
+
+		Debug.Log ("Collided!");
+
+		if (lastProjektilType == ProjektilCtrl.ProjektilType.Parti) {
+			switch (type) {
+			case ElementType.Glass:
+				Destroy (gameObject);
+				break;
+			case ElementType.Grid:
+
+				break;
+			case ElementType.Mirror:
+				Destroy (gameObject);
+				break;
+			case ElementType.Transform:
+
+				break;
+			case ElementType.Wall:
+
+				break;
+			}
+		} else { // WAVE
+			switch (type) {
+			case ElementType.Glass:
+
+				break;
+			case ElementType.Grid:
+
+				break;
+			case ElementType.Mirror:
+
+				break;
+			case ElementType.Transform:
+
+				break;
+			case ElementType.Wall:
+				Destroy(col.gameObject);
+				break;
+			}
+		}
 	}
 
 	void OnMouseDown() {
