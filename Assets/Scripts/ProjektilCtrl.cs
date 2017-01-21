@@ -9,7 +9,7 @@ public class ProjektilCtrl : MonoBehaviour {
 		Wave,
 	}
 		
-	private ProjektilType type = ProjektilType.Parti;
+	public ProjektilType type = ProjektilType.Parti;
 	public Sprite particleSprite;
 	public Sprite waveSprite;			
 	private SpriteRenderer sr;
@@ -23,9 +23,6 @@ public class ProjektilCtrl : MonoBehaviour {
 		rb = GetComponent<Rigidbody2D> ();
 		animator = GetComponent<Animator> ();
 		sr = GetComponentInChildren<SpriteRenderer> ();
-
-
-		type = ProjektilType.Parti;
 
 	}
 	
@@ -53,6 +50,11 @@ public class ProjektilCtrl : MonoBehaviour {
 			sr.sprite = particleSprite;
 		} else {
 			Debug.LogError ("Unknown type of projektil!");
+		}
+
+		GameObject[] gameObjs = GameObject.FindObjectsOfType<GameObject> ();
+		foreach(GameObject gameObj in gameObjs){
+			gameObj.SendMessage ("updateProjektilType", type, SendMessageOptions.DontRequireReceiver );
 		}
 	}
 }
