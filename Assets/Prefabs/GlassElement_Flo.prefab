@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4344443544679428}
   - component: {fileID: 50415869604699960}
   - component: {fileID: 114588633680743784}
-  - component: {fileID: 58498683081206964}
   - component: {fileID: 61093127090666886}
+  - component: {fileID: 58446580955977582}
   m_Layer: 0
   m_Name: GlassElement_Flo
   m_TagString: Untagged
@@ -93,7 +93,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &58498683081206964
+--- !u!58 &58446580955977582
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -101,13 +101,13 @@ CircleCollider2D:
   m_GameObject: {fileID: 1009129521514478}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2e59eed21d60b4635970fd5b9357c2e5, type: 2}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.253279
+  m_Radius: 1.23
 --- !u!61 &61093127090666886
 BoxCollider2D:
   m_ObjectHideFlags: 1
