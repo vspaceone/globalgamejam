@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjektilCtrl : MonoBehaviour {
+public class Rotateable : MonoBehaviour {
 
 	private Rigidbody2D rb;
 	private Animator animator;
@@ -11,22 +11,14 @@ public class ProjektilCtrl : MonoBehaviour {
 	void Start () {
 		rb = GetComponent<Rigidbody2D> ();
 		animator = GetComponent<Animator> ();
-
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
 
-	void FixedUpdate(){
-		if (Input.GetKey ("Space")) {
-			toggleType ();
-		}
-		
-	}
+		Vector3 mousePosition = Input.mousePosition;
+		Vector2 mouse2d = new Vector2 (mousePosition.x, mousePosition.y);
 
-	void toggleType(){
-	//	type = !type;
+
 	}
 }
