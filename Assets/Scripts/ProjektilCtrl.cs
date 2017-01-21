@@ -4,13 +4,43 @@ using UnityEngine;
 
 public class ProjektilCtrl : MonoBehaviour {
 
+	public enum ProjektilType{
+		Parti,
+		Wave,
+	}
+		
+	public Sprite particleSprite;
+	public Sprite waveSprite;
+
+
+	public ProjektilType type;
+	public ProjektilType Type {
+		get { return type; }
+		set {
+			SpriteRenderer sr = GetComponentInChildren<SpriteRenderer> ();
+			type = value;
+			if (type == ProjektilType.Parti) {
+				sr.sprite = particleSprite;
+			} else if (type == ProjektilType.Wave) {
+				sr.sprite = waveSprite;
+			} else {
+				Debug.LogError ("Unknown type of projektil!");
+			}
+				
+		}
+	}
+
 	private Rigidbody2D rb;
 	private Animator animator;
+
 
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D> ();
 		animator = GetComponent<Animator> ();
+
+
+		type = ProjektilType.Parti;
 
 	}
 	
@@ -20,13 +50,20 @@ public class ProjektilCtrl : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
-		if (Input.GetKey ("space")) {
+		if (Input.GetKeyDown ("t")) {
+			Debug.Log ("Toggling projektil type");
 			toggleType ();
 		}
 		
 	}
 
 	void toggleType(){
-	//	type = !type;
+		if (type == ProjektilType.Parti) {
+			type = ProjektilType.Wave;
+		} else if (type == ProjektilType.Wave) {
+			type = ProjektilType.Parti;
+		} else {
+			Debug.LogError ("Unknown type of projektil!");
+		}
 	}
 }

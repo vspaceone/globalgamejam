@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 50929862401464252}
   - component: {fileID: 61055252171419972}
   - component: {fileID: 114044043243497028}
+  - component: {fileID: 247866457305998868}
   m_Layer: 0
   m_Name: Blackhole
   m_TagString: Untagged
@@ -188,3 +189,13 @@ SpriteRenderer:
   m_Size: {x: 2.56, y: 2.56}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+--- !u!247 &247866457305998868
+ConstantForce2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1279071559874858}
+  m_Enabled: 1
+  m_Force: {x: 1, y: 1}
+  m_RelativeForce: {x: 0, y: 0}
+  m_Torque: 0.38
