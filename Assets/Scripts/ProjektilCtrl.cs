@@ -9,26 +9,10 @@ public class ProjektilCtrl : MonoBehaviour {
 		Wave,
 	}
 		
+	private ProjektilType type = ProjektilType.Parti;
 	public Sprite particleSprite;
-	public Sprite waveSprite;
-
-
-	public ProjektilType type;
-	public ProjektilType Type {
-		get { return type; }
-		set {
-			SpriteRenderer sr = GetComponentInChildren<SpriteRenderer> ();
-			type = value;
-			if (type == ProjektilType.Parti) {
-				sr.sprite = particleSprite;
-			} else if (type == ProjektilType.Wave) {
-				sr.sprite = waveSprite;
-			} else {
-				Debug.LogError ("Unknown type of projektil!");
-			}
-				
-		}
-	}
+	public Sprite waveSprite;			
+	private SpriteRenderer sr;
 
 	private Rigidbody2D rb;
 	private Animator animator;
@@ -38,6 +22,7 @@ public class ProjektilCtrl : MonoBehaviour {
 	void Start () {
 		rb = GetComponent<Rigidbody2D> ();
 		animator = GetComponent<Animator> ();
+		sr = GetComponentInChildren<SpriteRenderer> ();
 
 
 		type = ProjektilType.Parti;
@@ -46,22 +31,26 @@ public class ProjektilCtrl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
-
-	void FixedUpdate(){
 		if (Input.GetKeyDown ("t")) {
 			Debug.Log ("Toggling projektil type");
 			toggleType ();
 		}
+	}
+
+	void FixedUpdate(){
+
 		
 	}
 
 	void toggleType(){
 		if (type == ProjektilType.Parti) {
+			Debug.Log ("Wave now!");
 			type = ProjektilType.Wave;
+			sr.sprite = waveSprite;
 		} else if (type == ProjektilType.Wave) {
+			Debug.Log ("Parti now!");
 			type = ProjektilType.Parti;
+			sr.sprite = particleSprite;
 		} else {
 			Debug.LogError ("Unknown type of projektil!");
 		}
