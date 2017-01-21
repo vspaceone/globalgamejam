@@ -217,7 +217,7 @@ MonoBehaviour:
     type: 2}
   spawnPoint: {fileID: 4175811072109722}
   reloadTime: 1
-  shootpower: 600
+  shootpower: 200
 --- !u!212 &212508002635364978
 SpriteRenderer:
   m_ObjectHideFlags: 1

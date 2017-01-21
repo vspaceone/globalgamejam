@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlackholeCtrl : MonoBehaviour {
+public class WallCtrl : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

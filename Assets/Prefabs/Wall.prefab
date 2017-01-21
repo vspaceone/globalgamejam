@@ -52,7 +52,7 @@ GameObject:
   - component: {fileID: 4302281339521134}
   - component: {fileID: 50463217296622856}
   - component: {fileID: 61364549606715834}
-  - component: {fileID: 114494544552099286}
+  - component: {fileID: 114866195872904878}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -137,7 +137,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 2.56, y: 2.56}
---- !u!114 &114494544552099286
+--- !u!114 &114866195872904878
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
