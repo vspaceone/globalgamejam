@@ -20,7 +20,7 @@ public class ProjektilCtrl : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
-		if (Input.GetKey ("Space")) {
+		if (Input.GetKey ("space")) {
 			toggleType ();
 		}
 		

@@ -19,6 +19,5 @@ public class DestroyBorder : MonoBehaviour {
 		//Check collision name
 		Debug.Log("collision name = " + col.gameObject.name);
 	  	Destroy(col.gameObject);
-
 	}
 }

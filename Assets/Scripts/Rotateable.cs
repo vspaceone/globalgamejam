@@ -19,6 +19,6 @@ public class Rotateable : MonoBehaviour {
 		Vector3 mousePosition = Input.mousePosition;
 		Vector2 mouse2d = new Vector2 (mousePosition.x, mousePosition.y);
 
-
+		//rb.transform.rotation = rb.transform.position - mouse2d;
 	}
 }
