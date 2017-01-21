@@ -124,12 +124,7 @@ public class ElementCtrl : MonoBehaviour {
 		}
 	}
 
-
-	void OnCollisionEnter2D(Collision2D col) {
-		AudioSource.PlayClipAtPoint (bounceSound, new Vector3 (0, 0, 0));
-
-		Debug.Log ("Collided!");
-
+	void projektilHideElement(GameObject obj){
 		if (lastProjektilType == ProjektilCtrl.ProjektilType.Parti) {
 			switch (type) {
 			case ElementType.Glass:
@@ -163,9 +158,32 @@ public class ElementCtrl : MonoBehaviour {
 
 				break;
 			case ElementType.Wall:
-				Destroy(col.gameObject);
+				Destroy(obj);
 				break;
 			}
+		}
+
+	}
+
+
+	void OnTriggerEnter2D(Collider2D col){
+		// TODO Play sound depending on what happens. Destroyed, Glas, ...
+		//AudioSource.PlayClipAtPoint (bounceSound, new Vector3 (0, 0, 0));
+
+		Debug.Log ("Triggered!");
+
+		if (col.gameObject.name.Equals("Projektil(Clone)")) {
+			projektilHideElement (col.gameObject);
+		}
+	}
+
+	void OnCollisionEnter2D(Collision2D col) {
+		AudioSource.PlayClipAtPoint (bounceSound, new Vector3 (0, 0, 0));
+
+		Debug.Log ("Collided!");
+
+		if (col.gameObject.name.Equals("Projektil(Clone)")) {
+			projektilHideElement (col.gameObject);
 		}
 	}
 
