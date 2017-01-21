@@ -21,6 +21,8 @@ public class ElementCtrl : MonoBehaviour {
 	public Sprite transformSprite;
 	public AudioClip bounceSound;
 
+	private ProjektilCtrl.ProjektilType lastProjektilType;
+
 	//private BoxCollider2D box;
 	Transform box;
 
@@ -51,15 +53,73 @@ public class ElementCtrl : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		rb = GetComponent<Rigidbody2D> ();
+		box = GetComponent<Transform> ();
 		SpriteRenderer sr = GetComponentInChildren<SpriteRenderer> ();
+
 		sr.sprite = getSpriteByType (type);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		rb = GetComponent<Rigidbody2D> ();
-		box = GetComponent<Transform> ();
+
 	}
+
+	void updateProjektilType( ProjektilCtrl.ProjektilType t ){
+		
+		if (t != lastProjektilType) {
+			if (t == ProjektilCtrl.ProjektilType.Parti) {
+				updateForParticle ();
+			} else {
+				updateForWave ();
+			}
+			lastProjektilType = t;
+		}
+	}
+
+
+	void updateForParticle(){
+
+		switch (type) {
+		case ElementType.Glass:
+
+			break;
+		case ElementType.Grid:
+
+			break;
+		case ElementType.Mirror:
+
+			break;
+		case ElementType.Transform:
+
+			break;
+		case ElementType.Wall:
+
+			break;
+		}
+	}
+
+	void updateForWave(){
+		
+		switch (type) {
+		case ElementType.Glass:
+
+			break;
+		case ElementType.Grid:
+
+			break;
+		case ElementType.Mirror:
+
+			break;
+		case ElementType.Transform:
+
+			break;
+		case ElementType.Wall:
+
+			break;
+		}
+	}
+
 
 	void OnCollisionEnter2D(Collision2D coll) {
 		AudioSource.PlayClipAtPoint (bounceSound, new Vector3 (0, 0, 0));
