@@ -13,6 +13,10 @@ public class ProjektilCtrl : MonoBehaviour {
 	void Start () {
 		rb = GetComponent<Rigidbody2D> ();
 		animator = GetComponent<Animator> ();
+
+		Vector3 startImpuls = new Vector3 (speed, 0, 0);
+
+		rb.AddForce (startImpuls);
 	}
 	
 	// Update is called once per frame
@@ -21,6 +25,7 @@ public class ProjektilCtrl : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
+
 
 		
 	}
