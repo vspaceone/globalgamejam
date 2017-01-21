@@ -176,6 +176,8 @@ public class ElementCtrl : MonoBehaviour {
 		if (vec.x > 0)
 			rot *= -1;
 		relRot = (box.rotation.eulerAngles.z) - rot;
+		//if (relRot < -180)
+//			relRot = 360 - relRot;
 	}
 
 	void OnMouseDrag() {
@@ -185,8 +187,8 @@ public class ElementCtrl : MonoBehaviour {
 		if (vec.x > 0)
 			rot *= -1;
 		rot += relRot;
-		if (rot < -180)
-			rot = 360 - rot;
+//		if (rot < -180)
+//			rot = 360 - rot;
 		box.rotation = Quaternion.Euler(0, 0, rot);
 	}
 
