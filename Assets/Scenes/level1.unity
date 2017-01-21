@@ -383,7 +383,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: de55904c29db0496bac4741e18a85ec5, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!1 &1543987383
 GameObject:
   m_ObjectHideFlags: 0
