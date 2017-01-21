@@ -126,7 +126,7 @@ public class ElementCtrl : MonoBehaviour {
 
 
 	void OnCollisionEnter2D(Collision2D col) {
-		//AudioSource.PlayClipAtPoint (bounceSound, new Vector3 (0, 0, 0));
+		AudioSource.PlayClipAtPoint (bounceSound, new Vector3 (0, 0, 0));
 
 		Debug.Log ("Collided!");
 
