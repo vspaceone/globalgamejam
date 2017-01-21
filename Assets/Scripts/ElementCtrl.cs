@@ -86,18 +86,24 @@ public class ElementCtrl : MonoBehaviour {
 		Debug.Log ("update for particle");
 		switch (type) {
 		case ElementType.Glass:
-
+			// reflected
+			// quit good glass!
+			collider.isTrigger = false;
 			break;
 		case ElementType.Grid:
-
+			// reflected
+			collider.isTrigger = false;
 			break;
 		case ElementType.Mirror:
+			// Destroyes mirror
 			collider.isTrigger = true;
 			break;
 		case ElementType.Transform:
-
+			// reflected
+			collider.isTrigger = false;
 			break;
 		case ElementType.Wall:
+			// reflected
 			collider.isTrigger = false;
 			break;
 		}
@@ -107,57 +113,67 @@ public class ElementCtrl : MonoBehaviour {
 		Debug.Log ("update for wave");
 		switch (type) {
 		case ElementType.Glass:
+			// not affected
 			collider.isTrigger = true;
 			break;
 		case ElementType.Grid:
-
+			// reflected
+			collider.isTrigger = true;
 			break;
 		case ElementType.Mirror:
+			// reflected
 			collider.isTrigger = false;
 			break;
 		case ElementType.Transform:
-
+			// reflected
+			collider.isTrigger = false;
 			break;
 		case ElementType.Wall:
-
+			// absorbed
+			collider.isTrigger = true;
 			break;
 		}
 	}
 
 	void projektilHideElement(GameObject obj){
+
+		// PARTICLE
 		if (lastProjektilType == ProjektilCtrl.ProjektilType.Parti) {
 			switch (type) {
 			case ElementType.Glass:
-				Destroy (gameObject);
+				// reflected
+				// quit good glass!
 				break;
 			case ElementType.Grid:
-
+				// reflected
 				break;
 			case ElementType.Mirror:
+				// Destroyes mirror
 				Destroy (gameObject);
 				break;
 			case ElementType.Transform:
-
+				// reflected
 				break;
 			case ElementType.Wall:
-
+				// reflected
 				break;
 			}
 		} else { // WAVE
 			switch (type) {
 			case ElementType.Glass:
-
+				// not affected
 				break;
 			case ElementType.Grid:
-
+				// reflected
 				break;
 			case ElementType.Mirror:
-
+				// reflected
 				break;
 			case ElementType.Transform:
-
+				// reflected
 				break;
 			case ElementType.Wall:
+				// absorbed
 				Destroy(obj);
 				break;
 			}
