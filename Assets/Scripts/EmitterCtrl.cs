@@ -25,7 +25,7 @@ public class EmitterCtrl : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (Input.GetMouseButton (0) && projektil == null ) {
+		if (Input.GetKey("space") && projektil == null ) {
 			projektil = (GameObject)Instantiate (projektilPrefab, spawnPoint.position, Quaternion.identity);
 			float radian = ((rb.transform.eulerAngles.z - 90) / 180) * Mathf.PI;
 			Vector2 direction = new Vector2 (Mathf.Cos(radian), Mathf.Sin(radian));
