@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ProjektilCtrl : MonoBehaviour {
 
-	public float speed = 4;
+	public float speed = 200;
 
 	Rigidbody2D rb;
 	Animator animator;
