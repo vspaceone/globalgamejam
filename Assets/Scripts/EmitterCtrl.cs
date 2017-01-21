@@ -27,7 +27,9 @@ public class EmitterCtrl : MonoBehaviour {
 
 		if (Input.GetMouseButton (0) && projektil == null ) {
 			projektil = (GameObject)Instantiate (projektilPrefab, spawnPoint.position, Quaternion.identity);
-			projektil.GetComponent<Rigidbody2D> ().AddForce (Vector3.right * shootpower);
+			float radian = ((rb.transform.eulerAngles.z - 90) / 180) * Mathf.PI;
+			Vector2 direction = new Vector2 (Mathf.Cos(radian), Mathf.Sin(radian));
+			projektil.GetComponent<Rigidbody2D> ().AddForce (direction * shootpower);
 			audio.Play ();
 		}
 
