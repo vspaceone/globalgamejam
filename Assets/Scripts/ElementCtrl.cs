@@ -58,6 +58,8 @@ public class ElementCtrl : MonoBehaviour {
 		SpriteRenderer sr = GetComponentInChildren<SpriteRenderer> ();
 
 		sr.sprite = getSpriteByType (type);
+		//CircleCollider2D col = GetComponent<CircleCollider2D> ();
+		//col.isTrigger = true;
 	}
 	
 	// Update is called once per frame
@@ -131,7 +133,7 @@ public class ElementCtrl : MonoBehaviour {
 		float rot = Vector2.Angle (vec, new Vector2 (0, 1));
 		if (vec.x > 0)
 			rot *= -1;
-		//Debug.Log("Pos " + Input.mousePosition + " " + vec + " " + rot);
+		Debug.Log("Pos " + Input.mousePosition + " " + vec + " " + rot);
 		box.rotation = Quaternion.Euler(0, 0, rot);
 	}
 
