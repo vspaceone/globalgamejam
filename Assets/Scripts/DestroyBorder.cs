@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DestroyBorder : MonoBehaviour {
 
+	public AudioClip destroySound;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -19,5 +21,6 @@ public class DestroyBorder : MonoBehaviour {
 		//Check collision name
 		Debug.Log("collision name = " + col.gameObject.name);
 	  	Destroy(col.gameObject);
+		AudioSource.PlayClipAtPoint (destroySound, new Vector3 (0, 0, 0));
 	}
 }
