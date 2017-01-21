@@ -56,13 +56,13 @@ public class ElementCtrl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log ("n");
 		rb = GetComponent<Rigidbody2D> ();
 		box = GetComponent<Transform> ();
 	}
 
 	void OnCollisionEnter2D(Collision2D coll) {
-		Debug.Log ("Muh");
+
+
 	}
 
 	void OnMouseDrag() {

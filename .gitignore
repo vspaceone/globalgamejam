@@ -31,11 +31,6 @@ sysinfo.txt
 *.apk
 *.unitypackage
 
-*.meta
-**/*.meta
-**/**/*.meta
-**/**/**/*.meta
-
 
 Assets/.DS_Store
 

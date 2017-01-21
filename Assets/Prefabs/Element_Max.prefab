@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4756705323012062}
   - component: {fileID: 61606816006414468}
   - component: {fileID: 114258579833927698}
+  - component: {fileID: 114549504265092880}
   m_Layer: 0
   m_Name: Element_Max
   m_TagString: Untagged
@@ -79,8 +80,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1396916037071592}
   m_LocalRotation: {x: -0, y: -0, z: 0.8419675, w: 0.53952825}
-  m_LocalPosition: {x: 3.93, y: 0.17, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 2.63, y: 3, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 4990760141242736}
   m_Father: {fileID: 0}
@@ -127,6 +128,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0a502fb4ca0948978126b79a6ae2801, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114549504265092880
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1396916037071592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ec76a1ae935b4dd097b54224fbb86b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
+  glassSprite: {fileID: 21300000, guid: f12cb82b0e5494e13bbe5f444a5bacba, type: 3}
+  mirrorSprite: {fileID: 21300000, guid: 8dafe5d1b7255492ab0b59b142d5e971, type: 3}
+  wallSprite: {fileID: 21300000, guid: 3b8157b992ef14e7189095d88fb05a0e, type: 3}
+  gridSprite: {fileID: 21300000, guid: cd09488e175774ccca0d401e9b1e5e4b, type: 3}
+  transformSprite: {fileID: 0}
 --- !u!212 &212553329959225034
 SpriteRenderer:
   m_ObjectHideFlags: 1
