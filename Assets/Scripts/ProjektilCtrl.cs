@@ -31,14 +31,14 @@ public class ProjektilCtrl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
-
-	void FixedUpdate(){
 		if (Input.GetKeyDown ("t")) {
 			Debug.Log ("Toggling projektil type");
 			toggleType ();
 		}
+	}
+
+	void FixedUpdate(){
+
 		
 	}
 
