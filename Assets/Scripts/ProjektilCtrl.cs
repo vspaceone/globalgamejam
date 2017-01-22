@@ -41,7 +41,7 @@ public class ProjektilCtrl : MonoBehaviour {
 		
 	}
 
-	void toggleType(){
+	public void toggleType(){
 		if (type == ProjektilType.Parti) {
 			Debug.Log ("Wave now!");
 			type = ProjektilType.Wave;
@@ -55,7 +55,6 @@ public class ProjektilCtrl : MonoBehaviour {
 		}
 
 		annouceType ();
-
 	}
 
 	void annouceType(){

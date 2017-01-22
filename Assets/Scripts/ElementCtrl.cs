@@ -19,7 +19,6 @@ public class ElementCtrl : MonoBehaviour {
 	public Sprite mirrorSprite;
 	public Sprite wallSprite;
 	public Sprite gridSprite;
-	public Sprite transformSprite;
 	public AudioClip bounceSound;
 	public Collider2D collid;
 
@@ -45,8 +44,6 @@ public class ElementCtrl : MonoBehaviour {
 			return gridSprite;
 		case ElementType.Mirror:
 			return mirrorSprite;
-		case ElementType.Transform:
-			return transformSprite;
 		case ElementType.Wall:
 			return wallSprite;
 		}
@@ -192,10 +189,6 @@ public class ElementCtrl : MonoBehaviour {
 			// Destroyes mirror
 			collid.isTrigger = true;
 			break;
-		case ElementType.Transform:
-			// reflected
-			collid.isTrigger = false;
-			break;
 		case ElementType.Wall:
 			// reflected
 			collid.isTrigger = false;
@@ -216,10 +209,6 @@ public class ElementCtrl : MonoBehaviour {
 			collid.isTrigger = true;
 			break;
 		case ElementType.Mirror:
-			// reflected
-			collid.isTrigger = false;
-			break;
-		case ElementType.Transform:
 			// reflected
 			collid.isTrigger = false;
 			break;
@@ -245,9 +234,6 @@ public class ElementCtrl : MonoBehaviour {
 				// Destroyes mirror
 				Destroy (gameObject);
 				break;
-			case ElementType.Transform:
-				// reflected
-				break;
 			case ElementType.Wall:
 				// reflected
 				break;
@@ -261,9 +247,6 @@ public class ElementCtrl : MonoBehaviour {
 				// reflected
 				break;
 			case ElementType.Mirror:
-				// reflected
-				break;
-			case ElementType.Transform:
 				// reflected
 				break;
 			case ElementType.Wall:
