@@ -1224,6 +1224,16 @@ Prefab:
       propertyPath: m_LocalScale.x
       value: 0.1875001
       objectReference: {fileID: 0}
+    - target: {fileID: 114866195872904878, guid: af50b7bf3f39d41c5bc0512d5de481af,
+        type: 2}
+      propertyPath: destroySound
+      value: 
+      objectReference: {fileID: 8300000, guid: d4210182edd1d41d3aa09c410ec53bcf, type: 3}
+    - target: {fileID: 114866195872904878, guid: af50b7bf3f39d41c5bc0512d5de481af,
+        type: 2}
+      propertyPath: bounceSound
+      value: 
+      objectReference: {fileID: 8300000, guid: f0a63baa2170c4b2ab5d29d3e5ad8737, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: af50b7bf3f39d41c5bc0512d5de481af, type: 2}
   m_IsPrefabParent: 0

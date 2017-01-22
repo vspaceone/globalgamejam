@@ -5,6 +5,7 @@ using UnityEngine;
 public class WallCtrl : MonoBehaviour {
 
 	public AudioClip destroySound;
+	public AudioClip bounceSound;
 
 	// Use this for initialization
 	void Start () {
@@ -20,7 +21,15 @@ public class WallCtrl : MonoBehaviour {
 	{
 		//Check collision name
 		Debug.Log("collision name = " + col.gameObject.name);
-		Destroy(col.gameObject);
-		AudioSource.PlayClipAtPoint (destroySound, new Vector3 (0, 0, 0));
+
+		if (col.gameObject.name.Equals("Projektil(Clone)")) {
+			ProjektilCtrl pro = col.gameObject.GetComponent<ProjektilCtrl> ();
+			if (pro.type == ProjektilCtrl.ProjektilType.Parti) {
+				AudioSource.PlayClipAtPoint (bounceSound, new Vector3 (0, 0, 0));
+			}else {
+				Destroy(col.gameObject);
+				AudioSource.PlayClipAtPoint (destroySound, new Vector3 (0, 0, 0));
+			}
+		}
 	}
 }
