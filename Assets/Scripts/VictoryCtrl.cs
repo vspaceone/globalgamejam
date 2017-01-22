@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class VictoryCtrl : MonoBehaviour {
 
@@ -21,5 +22,13 @@ public class VictoryCtrl : MonoBehaviour {
 	void OnVictory( GameObject obj){
 		Debug.Log ("OnVictory called!");
 		renderer.enabled = true;
+		StartCoroutine(Example());
+
+
+	}
+		
+	IEnumerator Example() {
+		yield return new WaitForSeconds(5);
+		SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex + 1);
 	}
 }
