@@ -21,7 +21,7 @@ public class ElementCtrl : MonoBehaviour {
 	public Sprite gridSprite;
 	public Sprite transformSprite;
 	public AudioClip bounceSound;
-	public Collider2D collider;
+	public Collider2D collid;
 
 	private ProjektilCtrl.ProjektilType lastProjektilType;
 
@@ -57,7 +57,7 @@ public class ElementCtrl : MonoBehaviour {
 	void Start () {
 		rb = GetComponent<Rigidbody2D> ();
 		box = GetComponent<Transform> ();
-		collider = (Collider2D) GetComponent<BoxCollider2D> ();
+		collid = (Collider2D) GetComponent<BoxCollider2D> ();
 
 
 		SpriteRenderer sr = GetComponentInChildren<SpriteRenderer> ();
@@ -71,70 +71,164 @@ public class ElementCtrl : MonoBehaviour {
 	}
 
 	void updateProjektilType( ProjektilCtrl.ProjektilType t ){
-
+/*
 		if (t == ProjektilCtrl.ProjektilType.Parti) {
 			updateForParticle ();
 		} else {
 			updateForWave ();
 		}
 		lastProjektilType = t;
-
+*/
 	}
 
+	bool reflect(ProjektilCtrl.ProjektilType pt) {
+		if (pt == ProjektilCtrl.ProjektilType.Parti) {
+			switch (type) {
+			case ElementType.Glass:
+				return true;
+			case ElementType.Grid:
+				return true;
+			case ElementType.Mirror:
+				return false;
+			case ElementType.Transform:
+				return true;
+			case ElementType.Wall:
+				return true;
+			}
+		} else {
+			switch (type) {
+			case ElementType.Glass:
+				return false;
+			case ElementType.Grid:
+				return false;
+			case ElementType.Mirror:
+				return true;
+			case ElementType.Transform:
+				return true;
+			case ElementType.Wall:
+				return false;
+			}
+		}
+		return true;
+	}
 
+	bool destroyProjectile(ProjektilCtrl.ProjektilType pt) {
+		if (pt == ProjektilCtrl.ProjektilType.Parti) {
+			switch (type) {
+			case ElementType.Glass:
+				return false;
+			case ElementType.Grid:
+				return false;
+			case ElementType.Mirror:
+				return false;
+			case ElementType.Transform:
+				return false;
+			case ElementType.Wall:
+				return false;
+			}
+		} else { // WAVE
+			switch (type) {
+			case ElementType.Glass:
+				return false;
+			case ElementType.Grid:
+				return false;
+			case ElementType.Mirror:
+				return false;
+			case ElementType.Transform:
+				return false;
+			case ElementType.Wall:
+				return true;
+			}
+		}
+		return false;
+	}
+
+	bool destroyElement(ProjektilCtrl.ProjektilType pt) {
+		if (pt == ProjektilCtrl.ProjektilType.Parti) {
+			switch (type) {
+			case ElementType.Glass:
+				return false;
+			case ElementType.Grid:
+				return false;
+			case ElementType.Mirror:
+				return true;
+			case ElementType.Transform:
+				return false;
+			case ElementType.Wall:
+				return false;
+			}
+		} else { // WAVE
+			switch (type) {
+			case ElementType.Glass:
+				return false;
+			case ElementType.Grid:
+				return false;
+			case ElementType.Mirror:
+				return false;
+			case ElementType.Transform:
+				return false;
+			case ElementType.Wall:
+				return false;
+			}
+		}
+		return false;
+	}
+
+	/*
 	void updateForParticle(){
+		return;
 		Debug.Log ("update for particle");
 		switch (type) {
 		case ElementType.Glass:
 			// reflected
 			// quit good glass!
-			collider.isTrigger = false;
+			collid.isTrigger = false;
 			break;
 		case ElementType.Grid:
 			// reflected
-			collider.isTrigger = false;
+			collid.isTrigger = false;
 			break;
 		case ElementType.Mirror:
 			// Destroyes mirror
-			collider.isTrigger = true;
+			collid.isTrigger = true;
 			break;
 		case ElementType.Transform:
 			// reflected
-			collider.isTrigger = false;
+			collid.isTrigger = false;
 			break;
 		case ElementType.Wall:
 			// reflected
-			collider.isTrigger = false;
+			collid.isTrigger = false;
 			break;
 		}
 	}
 
 	void updateForWave(){
+		return;
 		Debug.Log ("update for wave");
 		switch (type) {
 		case ElementType.Glass:
 			// not affected
-			collider.isTrigger = true;
+			collid.isTrigger = true;
 			break;
 		case ElementType.Grid:
 			// reflected
-			collider.isTrigger = true;
+			collid.isTrigger = true;
 			break;
 		case ElementType.Mirror:
 			// reflected
-			collider.isTrigger = false;
+			collid.isTrigger = false;
 			break;
 		case ElementType.Transform:
 			// reflected
-			collider.isTrigger = false;
+			collid.isTrigger = false;
 			break;
 		case ElementType.Wall:
 			// absorbed
-			collider.isTrigger = true;
+			collid.isTrigger = true;
 			break;
 		}
 	}
-
 	void projektilHideElement(GameObject obj){
 
 		// PARTICLE
@@ -181,6 +275,7 @@ public class ElementCtrl : MonoBehaviour {
 
 	}
 
+	*/
 
 	void OnTriggerEnter2D(Collider2D col){
 		// TODO Play sound depending on what happens. Destroyed, Glas, ...
@@ -189,7 +284,16 @@ public class ElementCtrl : MonoBehaviour {
 		Debug.Log ("Triggered!");
 
 		if (col.gameObject.name.Equals("Projektil(Clone)")) {
-			projektilHideElement (col.gameObject);
+			ProjektilCtrl pro = col.gameObject.GetComponent<ProjektilCtrl> ();
+			lastProjektilType = pro.type;
+			//projektilHideElement (col.gameObject);
+			//if(pro.type == ProjektilCtrl.ProjektilType.Wave)
+			if(!reflect(pro.type))
+				Physics2D.IgnoreCollision (col, GetComponent<Collider2D>(), true);
+			if (destroyProjectile(pro.type))
+				Destroy (col.gameObject);
+			if (destroyElement (pro.type))
+				Destroy (gameObject);
 		}
 	}
 
@@ -199,8 +303,16 @@ public class ElementCtrl : MonoBehaviour {
 		Debug.Log ("Collided!");
 
 		if (col.gameObject.name.Equals("Projektil(Clone)")) {
-			projektilHideElement (col.gameObject);
+			ProjektilCtrl pro = col.gameObject.GetComponent<ProjektilCtrl> ();
+			lastProjektilType = pro.type;
+			//projektilHideElement (col.gameObject);
+			//col.enabled = false;
 		}
+	}
+
+	void OnCollisionExit2D(Collision2D col) {
+		Debug.Log ("Exit");
+		Physics2D.IgnoreCollision (col.collider, GetComponent<Collider2D>(), false);
 	}
 
 	void OnMouseDown() {
