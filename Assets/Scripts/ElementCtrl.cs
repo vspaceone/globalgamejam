@@ -124,8 +124,6 @@ public class ElementCtrl : MonoBehaviour {
 			switch (type) {
 			case ElementType.Glass:
 				return false;
-			case ElementType.Grid:
-				return false;
 			case ElementType.Mirror:
 				return true;
 			case ElementType.Water:
