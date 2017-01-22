@@ -66,17 +66,6 @@ public class ElementCtrl : MonoBehaviour {
 
 	}
 
-	void updateProjektilType( ProjektilCtrl.ProjektilType t ){
-/*
-		if (t == ProjektilCtrl.ProjektilType.Parti) {
-			updateForParticle ();
-		} else {
-			updateForWave ();
-		}
-		lastProjektilType = t;
-*/
-	}
-
 	bool reflect(ProjektilCtrl.ProjektilType pt) {
 		if (pt == ProjektilCtrl.ProjektilType.Parti) {
 			switch (type) {
@@ -169,95 +158,6 @@ public class ElementCtrl : MonoBehaviour {
 		}
 		return false;
 	}
-
-	/*
-	void updateForParticle(){
-		return;
-		Debug.Log ("update for particle");
-		switch (type) {
-		case ElementType.Glass:
-			// reflected
-			// quit good glass!
-			collid.isTrigger = false;
-			break;
-		case ElementType.Grid:
-			// reflected
-			collid.isTrigger = false;
-			break;
-		case ElementType.Mirror:
-			// Destroyes mirror
-			collid.isTrigger = true;
-			break;
-		case ElementType.Wall:
-			// reflected
-			collid.isTrigger = false;
-			break;
-		}
-	}
-
-	void updateForWave(){
-		return;
-		Debug.Log ("update for wave");
-		switch (type) {
-		case ElementType.Glass:
-			// not affected
-			collid.isTrigger = true;
-			break;
-		case ElementType.Grid:
-			// reflected
-			collid.isTrigger = true;
-			break;
-		case ElementType.Mirror:
-			// reflected
-			collid.isTrigger = false;
-			break;
-		case ElementType.Wall:
-			// absorbed
-			collid.isTrigger = true;
-			break;
-		}
-	}
-	void projektilHideElement(GameObject obj){
-
-		// PARTICLE
-		if (lastProjektilType == ProjektilCtrl.ProjektilType.Parti) {
-			switch (type) {
-			case ElementType.Glass:
-				// reflected
-				// quit good glass!
-				break;
-			case ElementType.Grid:
-				// reflected
-				break;
-			case ElementType.Mirror:
-				// Destroyes mirror
-				Destroy (gameObject);
-				break;
-			case ElementType.Wall:
-				// reflected
-				break;
-			}
-		} else { // WAVE
-			switch (type) {
-			case ElementType.Glass:
-				// not affected
-				break;
-			case ElementType.Grid:
-				// reflected
-				break;
-			case ElementType.Mirror:
-				// reflected
-				break;
-			case ElementType.Wall:
-				// absorbed
-				Destroy(obj);
-				break;
-			}
-		}
-
-	}
-
-	*/
 
 	void OnTriggerEnter2D(Collider2D col){
 		// TODO Play sound depending on what happens. Destroyed, Glas, ...
