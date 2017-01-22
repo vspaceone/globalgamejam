@@ -21,11 +21,23 @@ public class WorldCtrl : MonoBehaviour {
 		Debug.Log ("RemainingProjektils: " + remainingProjektils.Length);
 		if (remainingProjektils.Length == 0) {
 			// Reload Game
-			Debug.Log("Starting Level...");
+			Debug.Log("Restarting Level...");
 			GameObject[] objs = GameObject.FindObjectsOfType<GameObject>();
 			foreach (GameObject obj in objs) {
 				obj.SendMessage ("OnRestartLevel", gameObject, SendMessageOptions.DontRequireReceiver);
 			}
+		}
+	}
+
+	void OnTargetDestroyed( GameObject target ){
+
+		Debug.Log ("Target destroyed!");
+		Debug.Log ("Level finished!");
+
+
+		GameObject[] objs = GameObject.FindGameObjectsWithTag ("Victory");
+		foreach (GameObject obj in objs) {
+			obj.SendMessage ("OnVictory", gameObject, SendMessageOptions.DontRequireReceiver);
 		}
 	}
 		

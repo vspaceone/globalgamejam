@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Projektil
+  - World
+  - Victory
   layers:
   - Default
   - TransparentFX

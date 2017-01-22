@@ -36,6 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4726558190832628}
   - component: {fileID: 212245085201061034}
+  - component: {fileID: 111539731746503830}
   m_Layer: 0
   m_Name: element_blackhole
   m_TagString: Untagged
@@ -70,7 +71,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4952000003598334}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -298.6433}
 --- !u!4 &4793691338962718
 Transform:
   m_ObjectHideFlags: 1
@@ -78,7 +79,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1270238395033800}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 7.47, y: 0.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4952000003598334}
@@ -99,6 +100,21 @@ Transform:
   m_Father: {fileID: 4793691338962718}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!111 &111539731746503830
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1917845518241466}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 1d74521d92ebd4237a7475df960f166a, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 1d74521d92ebd4237a7475df960f166a, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &114043738744295922
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -111,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxGravDist: 10
-  maxGravity: -90
+  maxGravity: -45
 --- !u!212 &212245085201061034
 SpriteRenderer:
   m_ObjectHideFlags: 1

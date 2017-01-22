@@ -61,6 +61,7 @@ public class TargetCtrl : MonoBehaviour {
 				Debug.Log ("Win!");
 				AudioSource.PlayClipAtPoint (targetSound, new Vector3 (0, 0, 0));
 				Destroy (col.gameObject);
+				GameObject.FindGameObjectWithTag ("World").SendMessage ("OnTargetDestroyed", gameObject);
 			}
 		}
 	}
