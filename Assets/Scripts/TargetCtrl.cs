@@ -42,7 +42,7 @@ public class TargetCtrl : MonoBehaviour {
 
 	}
 
-	void OnTriggerEnter2D (Collision2D col)
+	void OnTriggerEnter2D (Collider2D col)
 	{
 		//Check collision name
 		Debug.Log("collision name = " + col.gameObject.name);
