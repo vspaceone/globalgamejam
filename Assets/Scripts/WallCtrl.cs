@@ -20,7 +20,7 @@ public class WallCtrl : MonoBehaviour {
 	{
 		//Check collision name
 		Debug.Log("collision name = " + col.gameObject.name);
-		AudioSource.PlayClipAtPoint (destroySound, new Vector3 (0, 0, 0));
 		Destroy(col.gameObject);
+		AudioSource.PlayClipAtPoint (destroySound, new Vector3 (0, 0, 0));
 	}
 }
