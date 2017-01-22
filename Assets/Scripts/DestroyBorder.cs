@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DestroyBorder : MonoBehaviour {
 
@@ -20,7 +21,7 @@ public class DestroyBorder : MonoBehaviour {
 	{
 		//Check collision name
 		Debug.Log("collision name = " + col.gameObject.name);
+		//AudioSource.PlayClipAtPoint (destroySound, new Vector3 (0, 0, 0));
 	  	Destroy(col.gameObject);
-		AudioSource.PlayClipAtPoint (destroySound, new Vector3 (0, 0, 0));
 	}
 }

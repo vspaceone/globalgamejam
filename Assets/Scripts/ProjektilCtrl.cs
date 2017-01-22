@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ProjektilCtrl : MonoBehaviour {
 
@@ -43,11 +44,9 @@ public class ProjektilCtrl : MonoBehaviour {
 
 	public void toggleType(){
 		if (type == ProjektilType.Parti) {
-			Debug.Log ("Wave now!");
 			type = ProjektilType.Wave;
 			sr.sprite = waveSprite;
 		} else if (type == ProjektilType.Wave) {
-			Debug.Log ("Parti now!");
 			type = ProjektilType.Parti;
 			sr.sprite = particleSprite;
 		} else {
@@ -63,4 +62,10 @@ public class ProjektilCtrl : MonoBehaviour {
 			gameObj.SendMessage ("updateProjektilType", type, SendMessageOptions.DontRequireReceiver );
 		}
 	}
+
+	void OnDestroy(){
+		Debug.Log ("Projektil destroyed. Restart!");
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+	}
+
 }

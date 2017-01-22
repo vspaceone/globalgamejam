@@ -20,7 +20,7 @@ public class ElementCtrl : MonoBehaviour {
 	public Sprite wallSprite;
 	public Sprite gridSprite;
 	public AudioClip bounceSound;
-	public Collider2D collider;
+	public BoxCollider2D collider;
 
 	private ProjektilCtrl.ProjektilType lastProjektilType;
 
@@ -54,7 +54,7 @@ public class ElementCtrl : MonoBehaviour {
 	void Start () {
 		rb = GetComponent<Rigidbody2D> ();
 		box = GetComponent<Transform> ();
-		collider = (Collider2D) GetComponent<BoxCollider2D> ();
+		collider = GetComponent<BoxCollider2D> ();
 
 
 		SpriteRenderer sr = GetComponentInChildren<SpriteRenderer> ();
