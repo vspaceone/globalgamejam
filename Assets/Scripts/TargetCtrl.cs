@@ -5,41 +5,60 @@ using UnityEngine;
 public class TargetCtrl : MonoBehaviour {
 
 	public enum TargetType {
+		NormalTarget,
 		ParticleTarget,
 		WaveTarget
 	}
 
 	public TargetType type;
-	private Rigidbody2D rb;
-	private Animator animator;
 	public AudioClip targetSound;
 
-	public Sprite glassSprite;
-	public Sprite mirrorSprite;
 
-	public TargetType Type {
-		get { return type; }
-		set {
-			SpriteRenderer sr = GetComponentInChildren<SpriteRenderer> ();
-			type = value;
-			sr.sprite = getSpriteByType (type);
-		}
-	}
+	public Sprite normalSprite;
+	public Sprite particleSprite;
+	public Sprite waveSprite;
+
+	private Rigidbody2D rb;
+	private Animator animator;
 
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D> ();
 		animator = GetComponent<Animator> ();
+
+		SpriteRenderer sr = GetComponentInChildren<SpriteRenderer> ();
+
+		switch (type) {
+		case TargetType.NormalTarget:
+			sr.sprite = normalSprite;
+			break;
+		case TargetType.ParticleTarget:
+			sr.sprite = particleSprite;
+			break;
+		case TargetType.WaveTarget:
+			sr.sprite = waveSprite;
+			break;
+		}
+
 	}
 
-	void OnCollisionEnter2D (Collision2D col)
+	void OnTriggerEnter2D (Collision2D col)
 	{
 		//Check collision name
 		Debug.Log("collision name = " + col.gameObject.name);
 		if (col.gameObject.name.Equals("Projektil(Clone)")) {
-			Debug.Log ("Win!");
-			AudioSource.PlayClipAtPoint (targetSound, new Vector3 (0, 0, 0));
-			Destroy (col.gameObject);
+			ProjektilCtrl pro = col.gameObject.GetComponent<ProjektilCtrl> ();
+			if (pro.type == ProjektilCtrl.ProjektilType.Parti && type == TargetType.WaveTarget) {
+				// Not ok!
+				Destroy (col.gameObject);
+			} else if (pro.type == ProjektilCtrl.ProjektilType.Wave && type == TargetType.ParticleTarget) {
+				// Not ok!
+				Destroy (col.gameObject);
+			} else {
+				Debug.Log ("Win!");
+				AudioSource.PlayClipAtPoint (targetSound, new Vector3 (0, 0, 0));
+				Destroy (col.gameObject);
+			}
 		}
 	}
 
