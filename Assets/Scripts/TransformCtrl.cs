@@ -6,6 +6,7 @@ public class TransformCtrl : MonoBehaviour {
 
 	private Rigidbody2D rb;
 	private Animator animator;
+	public AudioClip sound;
 
 	// Use this for initialization
 	void Start () {
@@ -28,7 +29,7 @@ public class TransformCtrl : MonoBehaviour {
 		if (col.gameObject.name.Equals ("Projektil(Clone)")) {
 			ProjektilCtrl projektil = col.gameObject.GetComponent<ProjektilCtrl> ();
 			projektil.toggleType ();
-
+			AudioSource.PlayClipAtPoint (sound, new Vector3 (0, 0, 0));
 		}
 	}
 }
