@@ -65,7 +65,7 @@ public class ProjektilCtrl : MonoBehaviour {
 
 	void OnDestroy(){
 		Debug.Log ("Projektil destroyed. Restart!");
-		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+		//SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 
 }

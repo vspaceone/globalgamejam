@@ -12,6 +12,7 @@ public class TargetCtrl : MonoBehaviour {
 
 	public TargetType type;
 	public AudioClip targetSound;
+	public AudioClip failedSound;
 
 
 	public Sprite normalSprite;
@@ -50,9 +51,11 @@ public class TargetCtrl : MonoBehaviour {
 			ProjektilCtrl pro = col.gameObject.GetComponent<ProjektilCtrl> ();
 			if (pro.type == ProjektilCtrl.ProjektilType.Parti && type == TargetType.WaveTarget) {
 				// Not ok!
+				AudioSource.PlayClipAtPoint (failedSound, new Vector3 (0, 0, 0));
 				Destroy (col.gameObject);
 			} else if (pro.type == ProjektilCtrl.ProjektilType.Wave && type == TargetType.ParticleTarget) {
 				// Not ok!
+				AudioSource.PlayClipAtPoint (failedSound, new Vector3 (0, 0, 0));
 				Destroy (col.gameObject);
 			} else {
 				Debug.Log ("Win!");

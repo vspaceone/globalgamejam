@@ -21,7 +21,7 @@ public class DestroyBorder : MonoBehaviour {
 	{
 		//Check collision name
 		Debug.Log("collision name = " + col.gameObject.name);
-		//AudioSource.PlayClipAtPoint (destroySound, new Vector3 (0, 0, 0));
+		AudioSource.PlayClipAtPoint (destroySound, new Vector3 (0, 0, 0));
 	  	Destroy(col.gameObject);
 	}
 }

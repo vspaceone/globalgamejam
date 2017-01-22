@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WorldCtrl : MonoBehaviour {
+public class Blackhole : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -13,5 +13,4 @@ public class WorldCtrl : MonoBehaviour {
 	void Update () {
 		
 	}
-		
 }
