@@ -18,8 +18,10 @@ public class ElementCtrl : MonoBehaviour {
 	public Sprite mirrorSprite;
 	public Sprite wallSprite;
 	public Sprite waterSprite;
+	public Sprite mirrorDestroyedSprite;
 	public AudioClip bounceSound;
 	public BoxCollider2D collid;
+	private bool isDestroyed = false;
 
 
 
@@ -149,19 +151,28 @@ public class ElementCtrl : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D col){
 		// TODO Play sound depending on what happens. Destroyed, Glas, ...
 		//AudioSource.PlayClipAtPoint (bounceSound, new Vector3 (0, 0, 0));
+		if (isDestroyed == true) {
+			Physics2D.IgnoreCollision (col, GetComponent<Collider2D>(), true);
+			return;
+		}
 
 		Debug.Log ("Triggered!");
 
-		if (col.gameObject.name.Equals("Projektil(Clone)")) {
+		if (col.gameObject.name.Equals ("Projektil(Clone)")) {
 			ProjektilCtrl pro = col.gameObject.GetComponent<ProjektilCtrl> ();
 			//projektilHideElement (col.gameObject);
 			//if(pro.type == ProjektilCtrl.ProjektilType.Wave)
-			if(!reflect(pro.type))
-				Physics2D.IgnoreCollision (col, GetComponent<Collider2D>(), true);
-			if (destroyProjectile(pro.type))
+			if (!reflect (pro.type)){
+				Physics2D.IgnoreCollision (col, GetComponent<Collider2D> (), true);
+			}
+			if (destroyProjectile (pro.type)){
 				Destroy (col.gameObject);
-			if (destroyElement (pro.type))
-				Destroy (gameObject);
+			}
+			if (destroyElement (pro.type)){
+				isDestroyed = true;
+				SpriteRenderer sr = GetComponentInChildren<SpriteRenderer> ();
+				sr.sprite = mirrorDestroyedSprite;
+			}
 		}
 	}
 
@@ -181,6 +192,12 @@ public class ElementCtrl : MonoBehaviour {
 	void OnCollisionExit2D(Collision2D col) {
 		Debug.Log ("Exit");
 		Physics2D.IgnoreCollision (col.collider, GetComponent<Collider2D>(), false);
+	}
+
+	void OnRestartLevel(GameObject none){
+		isDestroyed = false;
+		Start ();
+
 	}
 
 	void OnMouseDown() {

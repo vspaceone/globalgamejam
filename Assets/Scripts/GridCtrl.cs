@@ -14,11 +14,11 @@ public class GridCtrl : MonoBehaviour {
 		
 	}
 
-	void OnTriggerEnter2D(Collider2D col){
+	void OnTriggerExit2D(Collider2D col){
 		// TODO Play sound depending on what happens. Destroyed, Glas, ...
 		//AudioSource.PlayClipAtPoint (bounceSound, new Vector3 (0, 0, 0));
 
-		Debug.Log ("Triggered!");
+		Debug.Log ("Grid Triggered!");
 
 		if (col.gameObject.name.Equals("Projektil(Clone)")) {
 			ProjektilCtrl pro = col.gameObject.GetComponent<ProjektilCtrl> ();
@@ -29,6 +29,7 @@ public class GridCtrl : MonoBehaviour {
 			Vector2 dir = vel.normalized;
 
 			GameObject projektil = (GameObject)Instantiate (col.gameObject);
+			projektil.name = "Projektil(Clone)";
 			Rigidbody2D rig2 = projektil.GetComponent<Rigidbody2D> ();
 
 			rig.velocity = Quaternion.Euler (0, 0, -30) * dir * speed;

@@ -59,8 +59,12 @@ public class ProjektilCtrl : MonoBehaviour {
 	}
 
 	void OnDestroy(){
-		Debug.Log ("Projektil destroyed. Restart!");
 		//SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+		GameObject[] objs = GameObject.FindObjectsOfType<GameObject>();
+		foreach (GameObject obj in objs) {
+			obj.SendMessage ("OnProjektilDestroyed", gameObject, SendMessageOptions.DontRequireReceiver);
+		}
 	}
 
 }
