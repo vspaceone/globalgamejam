@@ -537,7 +537,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4862592607927178, guid: 5889439a3567a4c46997503f1e2a2d7a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.13
+      value: -0.82
       objectReference: {fileID: 0}
     - target: {fileID: 4862592607927178, guid: 5889439a3567a4c46997503f1e2a2d7a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -603,6 +603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd529c413be78400daa9ad14ce6c91fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  openDuration: 2
 --- !u!1 &1464241855
 GameObject:
   m_ObjectHideFlags: 1
