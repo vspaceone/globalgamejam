@@ -20,6 +20,8 @@ public class ElementCtrl : MonoBehaviour {
 	public Sprite waterSprite;
 	public Sprite mirrorDestroyedSprite;
 	public AudioClip bounceSound;
+	public AudioClip absorbSound;
+	public AudioClip brokenSound;
 	public BoxCollider2D collid;
 	private bool isDestroyed = false;
 
@@ -167,11 +169,13 @@ public class ElementCtrl : MonoBehaviour {
 			}
 			if (destroyProjectile (pro.type)){
 				Destroy (col.gameObject);
+				AudioSource.PlayClipAtPoint (absorbSound, new Vector3 (0, 0, 0));
 			}
 			if (destroyElement (pro.type)){
 				isDestroyed = true;
 				SpriteRenderer sr = GetComponentInChildren<SpriteRenderer> ();
 				sr.sprite = mirrorDestroyedSprite;
+				AudioSource.PlayClipAtPoint (brokenSound, new Vector3 (0, 0, 0));
 			}
 		}
 	}

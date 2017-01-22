@@ -53,7 +53,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1009129521514478}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 4.77, y: -3.54, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_Children:
   - {fileID: 4535609213362132}
@@ -139,9 +139,12 @@ MonoBehaviour:
   glassSprite: {fileID: 21300000, guid: f12cb82b0e5494e13bbe5f444a5bacba, type: 3}
   mirrorSprite: {fileID: 21300000, guid: 8dafe5d1b7255492ab0b59b142d5e971, type: 3}
   wallSprite: {fileID: 21300000, guid: 3b8157b992ef14e7189095d88fb05a0e, type: 3}
-  gridSprite: {fileID: 21300000, guid: cd09488e175774ccca0d401e9b1e5e4b, type: 3}
   waterSprite: {fileID: 21300000, guid: 32472277c5b4f4d899af365b42022155, type: 3}
+  mirrorDestroyedSprite: {fileID: 21300000, guid: f7051c0672b46413682fc92ee0bdddda,
+    type: 3}
   bounceSound: {fileID: 8300000, guid: f0a63baa2170c4b2ab5d29d3e5ad8737, type: 3}
+  absorbSound: {fileID: 8300000, guid: b2c5016fff48445fe95e709b409237ed, type: 3}
+  brokenSound: {fileID: 8300000, guid: a107febcf728d4151b77a345181bd30a, type: 3}
   collid: {fileID: 0}
 --- !u!212 &212877418476025354
 SpriteRenderer:
