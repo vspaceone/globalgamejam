@@ -9,7 +9,7 @@ public class ElementCtrl : MonoBehaviour {
 		Mirror,
 		Wall,
 		Grid,
-		Transform,
+		Water,
 	}
 	private Rigidbody2D rb;
 	private float relRot;
@@ -19,10 +19,11 @@ public class ElementCtrl : MonoBehaviour {
 	public Sprite mirrorSprite;
 	public Sprite wallSprite;
 	public Sprite gridSprite;
+	public Sprite waterSprite;
 	public AudioClip bounceSound;
 	public BoxCollider2D collid;
 
-	private ProjektilCtrl.ProjektilType lastProjektilType;
+
 
 	//private BoxCollider2D box;
 	Transform box;
@@ -46,6 +47,8 @@ public class ElementCtrl : MonoBehaviour {
 			return mirrorSprite;
 		case ElementType.Wall:
 			return wallSprite;
+		case ElementType.Water:
+			return waterSprite;
 		}
 		return null;
 	}
@@ -75,8 +78,8 @@ public class ElementCtrl : MonoBehaviour {
 				return true;
 			case ElementType.Mirror:
 				return false;
-			case ElementType.Transform:
-				return true;
+			case ElementType.Water:
+				return false;
 			case ElementType.Wall:
 				return true;
 			}
@@ -88,7 +91,7 @@ public class ElementCtrl : MonoBehaviour {
 				return false;
 			case ElementType.Mirror:
 				return true;
-			case ElementType.Transform:
+			case ElementType.Water:
 				return true;
 			case ElementType.Wall:
 				return false;
@@ -106,8 +109,8 @@ public class ElementCtrl : MonoBehaviour {
 				return false;
 			case ElementType.Mirror:
 				return false;
-			case ElementType.Transform:
-				return false;
+			case ElementType.Water:
+				return true;
 			case ElementType.Wall:
 				return false;
 			}
@@ -119,7 +122,7 @@ public class ElementCtrl : MonoBehaviour {
 				return false;
 			case ElementType.Mirror:
 				return false;
-			case ElementType.Transform:
+			case ElementType.Water:
 				return false;
 			case ElementType.Wall:
 				return true;
@@ -137,7 +140,7 @@ public class ElementCtrl : MonoBehaviour {
 				return false;
 			case ElementType.Mirror:
 				return true;
-			case ElementType.Transform:
+			case ElementType.Water:
 				return false;
 			case ElementType.Wall:
 				return false;
@@ -150,7 +153,7 @@ public class ElementCtrl : MonoBehaviour {
 				return false;
 			case ElementType.Mirror:
 				return false;
-			case ElementType.Transform:
+			case ElementType.Water:
 				return false;
 			case ElementType.Wall:
 				return false;
@@ -167,7 +170,6 @@ public class ElementCtrl : MonoBehaviour {
 
 		if (col.gameObject.name.Equals("Projektil(Clone)")) {
 			ProjektilCtrl pro = col.gameObject.GetComponent<ProjektilCtrl> ();
-			lastProjektilType = pro.type;
 			//projektilHideElement (col.gameObject);
 			//if(pro.type == ProjektilCtrl.ProjektilType.Wave)
 			if(!reflect(pro.type))
@@ -186,7 +188,7 @@ public class ElementCtrl : MonoBehaviour {
 
 		if (col.gameObject.name.Equals("Projektil(Clone)")) {
 			ProjektilCtrl pro = col.gameObject.GetComponent<ProjektilCtrl> ();
-			lastProjektilType = pro.type;
+
 			//projektilHideElement (col.gameObject);
 			//col.enabled = false;
 		}
