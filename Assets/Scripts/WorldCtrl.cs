@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class WorldCtrl : MonoBehaviour {
 
+	public AudioClip victorySound;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -37,6 +39,7 @@ public class WorldCtrl : MonoBehaviour {
 
 		GameObject[] objs = GameObject.FindGameObjectsWithTag ("Victory");
 		foreach (GameObject obj in objs) {
+			AudioSource.PlayClipAtPoint (victorySound, new Vector3 (0, 0, 0));
 			obj.SendMessage ("OnVictory", gameObject, SendMessageOptions.DontRequireReceiver);
 		}
 	}
