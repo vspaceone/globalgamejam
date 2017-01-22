@@ -140,7 +140,7 @@ MonoBehaviour:
   mirrorSprite: {fileID: 21300000, guid: 8dafe5d1b7255492ab0b59b142d5e971, type: 3}
   wallSprite: {fileID: 21300000, guid: 3b8157b992ef14e7189095d88fb05a0e, type: 3}
   gridSprite: {fileID: 21300000, guid: cd09488e175774ccca0d401e9b1e5e4b, type: 3}
-  waterSprite: {fileID: 0}
+  waterSprite: {fileID: 21300000, guid: 32472277c5b4f4d899af365b42022155, type: 3}
   bounceSound: {fileID: 8300000, guid: f0a63baa2170c4b2ab5d29d3e5ad8737, type: 3}
   collid: {fileID: 0}
 --- !u!212 &212877418476025354

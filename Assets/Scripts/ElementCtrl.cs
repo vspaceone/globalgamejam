@@ -92,7 +92,7 @@ public class ElementCtrl : MonoBehaviour {
 			case ElementType.Mirror:
 				return true;
 			case ElementType.Water:
-				return true;
+				return false;
 			case ElementType.Wall:
 				return false;
 			}
