@@ -25,8 +25,6 @@ public class ProjektilCtrl : MonoBehaviour {
 		animator = GetComponent<Animator> ();
 		sr = GetComponentInChildren<SpriteRenderer> ();
 
-		annouceType ();
-
 	}
 	
 	// Update is called once per frame
@@ -34,6 +32,12 @@ public class ProjektilCtrl : MonoBehaviour {
 		if (Input.GetKeyDown ("t")) {
 			Debug.Log ("Toggling projektil type");
 			toggleType ();
+		}
+
+		Vector2 moveDirection = rb.velocity;
+		if (moveDirection != Vector2.zero) {
+			float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
+			transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
 		}
 	}
 
@@ -51,15 +55,6 @@ public class ProjektilCtrl : MonoBehaviour {
 			sr.sprite = particleSprite;
 		} else {
 			Debug.LogError ("Unknown type of projektil!");
-		}
-
-		annouceType ();
-	}
-
-	void annouceType(){
-		GameObject[] gameObjs = GameObject.FindObjectsOfType<GameObject> ();
-		foreach(GameObject gameObj in gameObjs){
-			gameObj.SendMessage ("updateProjektilType", type, SendMessageOptions.DontRequireReceiver );
 		}
 	}
 
