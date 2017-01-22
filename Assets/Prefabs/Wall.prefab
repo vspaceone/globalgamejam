@@ -80,8 +80,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1621311472051530}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.53, y: 0.19, z: -10}
-  m_LocalScale: {x: 5.5068755, y: 0.16250049, z: 1}
+  m_LocalPosition: {x: 0, y: 3.33, z: -8}
+  m_LocalScale: {x: 0.31250003, y: 2.2373433, z: 1}
   m_Children:
   - {fileID: 4346731519308522}
   m_Father: {fileID: 0}
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7036b74f0a6244a0ca669ca3d9f60c52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroySound: {fileID: 8300000, guid: d4210182edd1d41d3aa09c410ec53bcf, type: 3}
+  absorbSound: {fileID: 8300000, guid: b2c5016fff48445fe95e709b409237ed, type: 3}
   bounceSound: {fileID: 8300000, guid: f0a63baa2170c4b2ab5d29d3e5ad8737, type: 3}
 --- !u!212 &212680516091102518
 SpriteRenderer:

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WallCtrl : MonoBehaviour {
 
-	public AudioClip destroySound;
+	public AudioClip absorbSound;
 	public AudioClip bounceSound;
 
 	// Use this for initialization
@@ -28,7 +28,7 @@ public class WallCtrl : MonoBehaviour {
 				AudioSource.PlayClipAtPoint (bounceSound, new Vector3 (0, 0, 0));
 			}else {
 				Destroy(col.gameObject);
-				AudioSource.PlayClipAtPoint (destroySound, new Vector3 (0, 0, 0));
+				AudioSource.PlayClipAtPoint (absorbSound, new Vector3 (0, 0, 0));
 			}
 		}
 	}
