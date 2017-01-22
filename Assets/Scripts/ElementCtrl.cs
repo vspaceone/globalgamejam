@@ -8,7 +8,6 @@ public class ElementCtrl : MonoBehaviour {
 		Glass,
 		Mirror,
 		Wall,
-		Grid,
 		Water,
 	}
 	private Rigidbody2D rb;
@@ -18,7 +17,6 @@ public class ElementCtrl : MonoBehaviour {
 	public Sprite glassSprite;
 	public Sprite mirrorSprite;
 	public Sprite wallSprite;
-	public Sprite gridSprite;
 	public Sprite waterSprite;
 	public AudioClip bounceSound;
 	public BoxCollider2D collid;
@@ -41,8 +39,6 @@ public class ElementCtrl : MonoBehaviour {
 		switch (t) {
 		case ElementType.Glass:
 			return glassSprite;
-		case ElementType.Grid:
-			return gridSprite;
 		case ElementType.Mirror:
 			return mirrorSprite;
 		case ElementType.Wall:
@@ -74,8 +70,6 @@ public class ElementCtrl : MonoBehaviour {
 			switch (type) {
 			case ElementType.Glass:
 				return true;
-			case ElementType.Grid:
-				return true;
 			case ElementType.Mirror:
 				return false;
 			case ElementType.Water:
@@ -86,8 +80,6 @@ public class ElementCtrl : MonoBehaviour {
 		} else {
 			switch (type) {
 			case ElementType.Glass:
-				return false;
-			case ElementType.Grid:
 				return false;
 			case ElementType.Mirror:
 				return true;
@@ -105,8 +97,6 @@ public class ElementCtrl : MonoBehaviour {
 			switch (type) {
 			case ElementType.Glass:
 				return false;
-			case ElementType.Grid:
-				return false;
 			case ElementType.Mirror:
 				return false;
 			case ElementType.Water:
@@ -117,8 +107,6 @@ public class ElementCtrl : MonoBehaviour {
 		} else { // WAVE
 			switch (type) {
 			case ElementType.Glass:
-				return false;
-			case ElementType.Grid:
 				return false;
 			case ElementType.Mirror:
 				return false;
@@ -148,8 +136,6 @@ public class ElementCtrl : MonoBehaviour {
 		} else { // WAVE
 			switch (type) {
 			case ElementType.Glass:
-				return false;
-			case ElementType.Grid:
 				return false;
 			case ElementType.Mirror:
 				return false;
