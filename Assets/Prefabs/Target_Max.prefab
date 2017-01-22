@@ -109,7 +109,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df3e65dcd22cd40c3b4494db7da4fd24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
   targetSound: {fileID: 8300000, guid: 35b6225a8c6ce40329f97536f9ef540c, type: 3}
   normalSprite: {fileID: 21300000, guid: eb5da2a1cecba424e92f2c10207fe880, type: 3}
   particleSprite: {fileID: 21300000, guid: ae0913984fdfa4badaac3591c31cb97b, type: 3}
