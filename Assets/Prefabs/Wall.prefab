@@ -134,9 +134,18 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 2.56, y: 2.56}
+  m_EdgeRadius: 0
 --- !u!114 &114866195872904878
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -148,8 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7036b74f0a6244a0ca669ca3d9f60c52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  absorbSound: {fileID: 8300000, guid: b2c5016fff48445fe95e709b409237ed, type: 3}
-  bounceSound: {fileID: 8300000, guid: f0a63baa2170c4b2ab5d29d3e5ad8737, type: 3}
+  absorbSound: {fileID: 8300000, guid: d5e856e8f6e7c437f8415d043d4c30ce, type: 3}
 --- !u!212 &212680516091102518
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -190,3 +198,5 @@ SpriteRenderer:
   m_Size: {x: 2.56, y: 2.56}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
